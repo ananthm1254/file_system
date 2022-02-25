@@ -29,4 +29,4 @@ jobs:
 
       - name: Generate Files
         run: |
-          python3 generate_files.py
+          python3 file_generator.py
