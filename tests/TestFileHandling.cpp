@@ -9,11 +9,9 @@ extern "C" {
 
 TEST_GROUP(TestFileErase) {
   void setup() {
-    MemoryLeakWarningPlugin::saveAndDisableNewDeleteOverloads();
   }
 
   void teardown() {
-    MemoryLeakWarningPlugin::restoreNewDeleteOverloads();
   }
 };
 
