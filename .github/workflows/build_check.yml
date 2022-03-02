@@ -40,3 +40,8 @@ jobs:
           mkdir -p build/
           cd build
           cmake ..
+          make
+
+      - name: Run Tests
+        run: |
+          ./build/tests/debug_tests  
