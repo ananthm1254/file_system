@@ -12,11 +12,13 @@ endif()
 
 # (2) Our unit tests sources
 set(TEST_APP_NAME ${APP_NAME}_tests)
-file(GLOB SRCS "./*.cpp")
-set(TEST_SOURCES ${SRCS})
+
+set(TEST_SOURCES ${SRCS} 
+    "AllTests.cpp"
+    "../src/file_io/test/file_io_test.cpp" )
 
 # (3) Take care of include directories
-include_directories(${CPPUTEST_INCLUDE_DIRS} ../src/inc)
+include_directories(${CPPUTEST_INCLUDE_DIRS} ../src/inc ../src/file_io/inc)
 link_directories(${CPPUTEST_LIBRARIES})
 set(CMAKE_BUILD_TYPE Debug)
 # (4) Build the unit tests objects and link then with the app library

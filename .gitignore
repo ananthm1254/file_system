@@ -52,3 +52,4 @@ Mkfile.old
 dkms.conf
 build/*
 file_stack/*
+!file_stack/.gitkeep

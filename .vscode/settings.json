@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "file_utils.h": "c",
+        "defs.h": "c",
+        "variant": "c"
+    }
+}
