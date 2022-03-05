@@ -1,6 +1,7 @@
 #pragma once
 #include "defs.h"
 #include "file_utils.h"
+#include "file_io_defs.h"
 
 typedef enum _FileOp_t {
     FILE_INIT,

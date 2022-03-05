@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/tests/debug_tests",
-            "args": [],
+            "args": ["-v", "-c"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build/tests",
             "environment": [],

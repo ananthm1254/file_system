@@ -1,8 +1,8 @@
 #include "defs.h"
 #include "file_utils.h"
 #include "cmd_handler.h"
+#include "file_io_defs.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 uint32_t FileCmdHandler(FileOp_t cmd, CmdMsg_t *cmdMsg)
 {
