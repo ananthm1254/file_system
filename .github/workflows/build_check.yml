@@ -44,4 +44,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          ./build/tests/debug_tests  -v -c
+          ./build/tests/debug_tests -c -v  
