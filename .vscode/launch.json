@@ -5,16 +5,32 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/test_lib",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/test_lib"
+            }
+        },
+        {
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/tests/debug_tests",
-            "args": ["-v", "-c"],
+            "args": [
+                "-v",
+                "-c"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build/tests",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -27,6 +43,41 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "Python debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/bin/python3",
+            "environment": [
+                {
+                "name": "PYTHONPATH",
+                "value": ":${workspaceFolder}/test_lib"
+                }
+
+            ],
+            "args": [
+                "${input:Script}"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/test_lib",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true,
+                }
+            ],
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "Script",
+            "description": "Which script do you want to run?",
+            "default": "test_scripts/template_test.py"
         }
     ]
 }

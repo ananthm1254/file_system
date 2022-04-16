@@ -1,4 +1,4 @@
-#include "CppUTest/TestHarness.h"
+#include "gtest/gtest.h"
 
 extern "C" {
   #include "file_names.h"
@@ -7,13 +7,6 @@ extern "C" {
   #include "defs.h"
 }
 
-TEST_GROUP(TestFileRead) {
-  void setup() {
-  }
-
-  void teardown() {
-  }
-};
 
 TEST(TestFileRead, TestReadSuccess)
 {
@@ -22,16 +15,9 @@ TEST(TestFileRead, TestReadSuccess)
     readMsg.address.page_address = 0;
     readMsg.buffPtr = NULL;
 
-    CHECK_EQUAL(FileRead(&readMsg), SUCCESS);
+    ASSERT_EQ(FileRead(&readMsg), SUCCESS);
 }
 
-TEST_GROUP(TestFileWrite) {
-  void setup() {
-  }
-
-  void teardown() {
-  }
-};
 
 TEST(TestFileWrite, TestWriteSuccess)
 {
@@ -41,7 +27,7 @@ TEST(TestFileWrite, TestWriteSuccess)
     writeMsg.address.page_address = 0;
     writeMsg.buffPtr = &entryArray[0];
 
-    CHECK_EQUAL(FileWrite(&writeMsg), SUCCESS);
+    ASSERT_EQ(FileWrite(&writeMsg), SUCCESS);
 }
 
 TEST(TestFileWrite, TestWriteNullEntry)
@@ -51,16 +37,9 @@ TEST(TestFileWrite, TestWriteNullEntry)
     writeMsg.address.page_address = 0;
     writeMsg.buffPtr = NULL;
 
-    CHECK_EQUAL(FileWrite(&writeMsg), FAILURE);
+    ASSERT_EQ(FileWrite(&writeMsg), FAILURE);
 }
 
-TEST_GROUP(TestFileErase) {
-  void setup() {
-  }
-
-  void teardown() {
-  }
-};
 
 TEST(TestFileErase, TestEraseSuccess) 
 {
@@ -69,7 +48,7 @@ TEST(TestFileErase, TestEraseSuccess)
     eraseMsg.address.page_address = 0;
     eraseMsg.respQId = 0;
 
-    CHECK_EQUAL(FileErase(&eraseMsg), SUCCESS);
+    ASSERT_EQ(FileErase(&eraseMsg), SUCCESS);
 }
 
 TEST(TestFileErase, TestEraseInvalidAddress) 
@@ -79,5 +58,5 @@ TEST(TestFileErase, TestEraseInvalidAddress)
     eraseMsg.address.page_address = 0;
     eraseMsg.respQId = 0;
 
-    CHECK_EQUAL(FileErase(&eraseMsg), FAILURE);
+    ASSERT_EQ(FileErase(&eraseMsg), FAILURE);
 }
