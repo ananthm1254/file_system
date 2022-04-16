@@ -27,9 +27,9 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install cmake and cpputest
+      - name: Install googletest
         run: |
-          sudo apt install cmake cpputest
+          sudo apt-get install libgtest-dev
 
       - name: Generate Files
         run: |
