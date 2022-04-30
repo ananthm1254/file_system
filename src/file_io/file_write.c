@@ -21,7 +21,7 @@ uint32_t FileWrite(WriteMsg_t *writeMsg)
     }
 
     // Open corresponding file
-    fptr = file_open(gFileNames[address.block_address][address.page_address]);
+    fptr = file_open_write(gFileNames[address.block_address][address.page_address]);
     ASSERT(fptr);
 
     // Copy buffer memory data into local file entry

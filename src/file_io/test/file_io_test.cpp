@@ -54,7 +54,7 @@ TEST(TestFileErase, TestEraseSuccess)
 TEST(TestFileErase, TestEraseInvalidAddress) 
 {
     EraseMsg_t eraseMsg;
-    eraseMsg.address.block_address = 4;
+    eraseMsg.address.block_address = BLOCK_MAX_CNT;
     eraseMsg.address.page_address = 0;
     eraseMsg.respQId = 0;
 

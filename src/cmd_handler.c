@@ -29,10 +29,11 @@ uint32_t FileCmdHandler(FileOp_t cmd, CmdMsg_t *cmdMsg)
 
             break;
         }
-/*
+
         case FILE_WRITE:
         {
-            if(FileWrite() != SUCCESS)
+            WriteMsg_t writeMsg = cmdMsg->writeMsg;
+            if(FileWrite(&writeMsg) != SUCCESS)
             {
                 retVal = FAILURE;
             }
@@ -42,14 +43,15 @@ uint32_t FileCmdHandler(FileOp_t cmd, CmdMsg_t *cmdMsg)
 
         case FILE_READ:
         {
-            if(FileRead() != SUCCESS)
+            ReadMsg_t readMsg = cmdMsg->readMsg;
+            if(FileRead(&readMsg) != SUCCESS)
             {
                 retVal = FAILURE;
             }
             
             break;
         }
- */       
+       
         default:
             printf("Invalid Operation");
             break;

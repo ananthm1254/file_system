@@ -7,14 +7,24 @@
 #include "file_names.h"
 
 
-static inline FILE* file_open(char* fileName)
+static inline FILE* file_open_write(char* fileName)
 {
-    return fopen(fileName, "wb+");
+    return fopen(fileName, "wb");
+}
+
+static inline FILE* file_open_read(char* fileName)
+{
+    return fopen(fileName, "rb");
 }
 
 static inline void file_write(uint8_t* fileEntry, FILE* fptr, uint32_t fileSize)
 {
     fwrite(fileEntry, fileSize, 1, fptr);
+}
+
+static inline void file_seek(FILE* fptr, uint32_t offset)
+{
+    fseek(fptr, offset, 0);
 }
 
 static inline void file_read(uint8_t* fileEntry, FILE* fptr, uint32_t fileSize)
