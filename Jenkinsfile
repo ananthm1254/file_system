@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'python3 file_generator.py'
                 sh 'make build'
             }
         }
