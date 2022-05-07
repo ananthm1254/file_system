@@ -1,6 +1,6 @@
 /**************************************************************
 This is a auto-generated file. Please run the following command
-               python3 file_generator                          
+               python3 file_generator.py                       
 **************************************************************/
 
 #pragma once

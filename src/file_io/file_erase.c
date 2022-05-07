@@ -15,7 +15,7 @@ uint32_t FileErase(EraseMsg_t *eraseMsg)
     }
 
     // Open corresponding file
-    fptr = file_open(gFileNames[address.block_address][address.page_address]);
+    fptr = file_open_write(gFileNames[address.block_address][address.page_address]);
     ASSERT(fptr);
 
     // Set file entry to zero

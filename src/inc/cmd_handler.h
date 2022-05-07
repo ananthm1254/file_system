@@ -23,6 +23,8 @@ typedef enum _FileResp_t {
 typedef union _CmdMsg_t
 {
     EraseMsg_t eraseMsg;
+    WriteMsg_t writeMsg;
+    ReadMsg_t readMsg;
 } CmdMsg_t;
 
 
