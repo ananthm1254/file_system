@@ -1,10 +1,27 @@
 import os
 import subprocess
+import argparse
 
-BLOCK_MAX_CNT = 4
-PAGE_MAX_CNT = 4
+BLOCK_MAX_CNT = 0
+PAGE_MAX_CNT = 0
 
 def main():
+    parser = argparse.ArgumentParser(description='Generate File for file system build.')
+    parser.add_argument(
+        "--block_count",
+        default=4,
+        type=int,
+        help="Number of file blocks in a stack"
+    )
+    parser.add_argument(
+        "--page_count",
+        default=4,
+        type=int,
+        help="Number of pages in a file block"
+    )
+    args = parser.parse_args()
+    BLOCK_MAX_CNT = args.block_count
+    PAGE_MAX_CNT = args.page_count
     path = os.path.dirname(os.path.realpath(__file__))
     with open(path + "/src/inc/file_names.h", "w") as hfile:
         hfile.write("/**************************************************************\n")
